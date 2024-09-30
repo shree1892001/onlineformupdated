@@ -228,7 +228,7 @@ async function selectCheckboxByLabel(page, checkboxText) {
     }
 }
 
-async function submitForm(page, buttonSelectors = ['button[type="submit"]', 'button.t-Button--hot', 'button#P101_LOGIN','t-Button t-Button--hot']) {
+async function submitForm(page, buttonSelectors = ['button[type="submit"]', 'button.t-Button--hot', 'button#P101_LOGIN','t-Button t-Button--hot'],) {
     try {
         // Retry form submission up to 3 times in case of failure
         await retry(async () => {
