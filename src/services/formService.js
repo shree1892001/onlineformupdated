@@ -1,23 +1,21 @@
-const stateFormFactory = require('../factories/stateFormFactory');
-const { handleError } = require('../utils/errorHandler');
-const logger = require('../utils/logger');  // Import logger
+const puppeteer = require('puppeteer');
+const stateFormFactory = require('D:/vState-online-form-submission/src/factories/stateFormFactory.js');
+const logger = require('D:/vState-online-form-submission/src/utils/logger');
 
-exports.processForm = async (payload) => {
+exports.processForm = async (page,jsonData) => {
     try {
-        const { state } = payload;
-        logger.info(`Processing form for state: ${state}`);  // Log the state being processed
+        logger.info(`Processing form for state: ${jsonData.data.State.stateFullDesc}`);
 
-        const formHandler = stateFormFactory.getFormHandler(state);
-
-        if (!formHandler) {
-            throw new Error(`No form handler available for state: ${state}`);
+        const formHandler = await stateFormFactory.getFormHandler(page, jsonData);
+        console.log(typeof formHandler)
+        if (typeof formHandler !== 'function') {
+            throw new Error(`No form handler available for state: ${jsonData.data.State.stateFullDesc}`);
         }
 
-        await formHandler.fillForm(payload);
-        logger.info(`Form successfully processed for state: ${state}`);
+        await formHandler(page, jsonData);
+        logger.info(`Form successfully processed for state: ${jsonData.data.State.stateFullDesc}`);
     } catch (error) {
-        logger.error(`Error processing form for state: ${payload.state}`, error);  // Log errors
-        handleError(error);
-        throw error;  // Rethrow to pass it up to the controller
+        logger.error(`Error processing form for state: ${jsonData.data.State.stateFullDesc}`, error);
+        throw error;
     }
 };

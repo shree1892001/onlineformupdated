@@ -1,0 +1,25 @@
+2024-09-28 10:09:16 info: Server is running on port 3000
+2024-09-28 10:15:08 info: Received form submission request
+2024-09-28 10:15:44 info: Processing form for state: New-York
+2024-09-28 10:15:44 info: Factory creating form handler for state: New-York
+2024-09-28 10:15:44 info: Navigating to New York form submission page...
+2024-09-28 10:15:59 error: Error: net::ERR_CONNECTION_RESET at https://filings.dos.ny.gov/ords/corpanc/r/ecorp/login_desktop
+    at navigate (D:\vState-online-form-submission\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\Frame.js:183:27)
+    at async Deferred.race (D:\vState-online-form-submission\node_modules\puppeteer-core\lib\cjs\puppeteer\util\Deferred.js:36:20)
+    at async CdpFrame.goto (D:\vState-online-form-submission\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\Frame.js:149:25)
+    at async CdpPage.goto (D:\vState-online-form-submission\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:567:20)
+    at async NewYorkForLLC (D:\vState-online-form-submission\src\handlers\NewYorkForLLCFormHandler.js:9:9)
+    at async exports.processForm (D:\vState-online-form-submission\src\services\formService.js:14:29)
+    at async exports.submitForm (D:\vState-online-form-submission\src\controllers\formController.js:9:9)
+2024-09-28 10:15:59 error: Error: New York LLC form submission failed: net::ERR_CONNECTION_RESET at https://filings.dos.ny.gov/ords/corpanc/r/ecorp/login_desktop
+    at NewYorkForLLC (D:\vState-online-form-submission\src\handlers\NewYorkForLLCFormHandler.js:44:15)
+    at async exports.processForm (D:\vState-online-form-submission\src\services\formService.js:14:29)
+    at async exports.submitForm (D:\vState-online-form-submission\src\controllers\formController.js:9:9)
+2024-09-28 10:16:00 error: Error: New York LLC form submission failed: net::ERR_CONNECTION_RESET at https://filings.dos.ny.gov/ords/corpanc/r/ecorp/login_desktop
+    at NewYorkForLLC (D:\vState-online-form-submission\src\handlers\NewYorkForLLCFormHandler.js:44:15)
+    at async exports.processForm (D:\vState-online-form-submission\src\services\formService.js:14:29)
+    at async exports.submitForm (D:\vState-online-form-submission\src\controllers\formController.js:9:9)
+2024-09-28 10:16:00 error: Error: New York LLC form submission failed: net::ERR_CONNECTION_RESET at https://filings.dos.ny.gov/ords/corpanc/r/ecorp/login_desktop
+    at NewYorkForLLC (D:\vState-online-form-submission\src\handlers\NewYorkForLLCFormHandler.js:44:15)
+    at async exports.processForm (D:\vState-online-form-submission\src\services\formService.js:14:29)
+    at async exports.submitForm (D:\vState-online-form-submission\src\controllers\formController.js:9:9)
